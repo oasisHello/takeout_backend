@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="oasis.takeout.system.mapper.CoursesMapper">
+    
+    <resultMap type="Courses" id="CoursesResult">
+        <result property="courseId"    column="course_id"    />
+        <result property="courseName"    column="course_name"    />
+        <result property="courseCode"    column="course_code"    />
+        <result property="description"    column="description"    />
+        <result property="instructor"    column="instructor"    />
+        <result property="startDate"    column="start_date"    />
+        <result property="endDate"    column="end_date"    />
+        <result property="credits"    column="credits"    />
+        <result property="department"    column="department"    />
+        <result property="createdAt"    column="created_at"    />
+    </resultMap>
+
+    <sql id="selectCoursesVo">
+        select course_id, course_name, course_code, description, instructor, start_date, end_date, credits, department, created_at from courses
+    </sql>
+
+    <select id="selectCoursesList" parameterType="Courses" resultMap="CoursesResult">
+        <include refid="selectCoursesVo"/>
+        <where>  
+            <if test="courseName != null  and courseName != ''"> and course_name like concat('%', #{courseName}, '%')</if>
+            <if test="courseCode != null  and courseCode != ''"> and course_code = #{courseCode}</if>
+            <if test="description != null  and description != ''"> and description = #{description}</if>
+            <if test="instructor != null  and instructor != ''"> and instructor = #{instructor}</if>
+            <if test="startDate != null "> and start_date = #{startDate}</if>
+            <if test="endDate != null "> and end_date = #{endDate}</if>
+            <if test="credits != null "> and credits = #{credits}</if>
+            <if test="department != null  and department != ''"> and department = #{department}</if>
+            <if test="createdAt != null "> and created_at = #{createdAt}</if>
+        </where>
+    </select>
+    
+    <select id="selectCoursesByCourseId" parameterType="Long" resultMap="CoursesResult">
+        <include refid="selectCoursesVo"/>
+        where course_id = #{courseId}
+    </select>
+
+    <insert id="insertCourses" parameterType="Courses" useGeneratedKeys="true" keyProperty="courseId">
+        insert into courses
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="courseName != null and courseName != ''">course_name,</if>
+            <if test="courseCode != null and courseCode != ''">course_code,</if>
+            <if test="description != null">description,</if>
+            <if test="instructor != null">instructor,</if>
+            <if test="startDate != null">start_date,</if>
+            <if test="endDate != null">end_date,</if>
+            <if test="credits != null">credits,</if>
+            <if test="department != null">department,</if>
+            <if test="createdAt != null">created_at,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="courseName != null and courseName != ''">#{courseName},</if>
+            <if test="courseCode != null and courseCode != ''">#{courseCode},</if>
+            <if test="description != null">#{description},</if>
+            <if test="instructor != null">#{instructor},</if>
+            <if test="startDate != null">#{startDate},</if>
+            <if test="endDate != null">#{endDate},</if>
+            <if test="credits != null">#{credits},</if>
+            <if test="department != null">#{department},</if>
+            <if test="createdAt != null">#{createdAt},</if>
+         </trim>
+    </insert>
+
+    <update id="updateCourses" parameterType="Courses">
+        update courses
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="courseName != null and courseName != ''">course_name = #{courseName},</if>
+            <if test="courseCode != null and courseCode != ''">course_code = #{courseCode},</if>
+            <if test="description != null">description = #{description},</if>
+            <if test="instructor != null">instructor = #{instructor},</if>
+            <if test="startDate != null">start_date = #{startDate},</if>
+            <if test="endDate != null">end_date = #{endDate},</if>
+            <if test="credits != null">credits = #{credits},</if>
+            <if test="department != null">department = #{department},</if>
+            <if test="createdAt != null">created_at = #{createdAt},</if>
+        </trim>
+        where course_id = #{courseId}
+    </update>
+
+    <delete id="deleteCoursesByCourseId" parameterType="Long">
+        delete from courses where course_id = #{courseId}
+    </delete>
+
+    <delete id="deleteCoursesByCourseIds" parameterType="String">
+        delete from courses where course_id in 
+        <foreach item="courseId" collection="array" open="(" separator="," close=")">
+            #{courseId}
+        </foreach>
+    </delete>
+</mapper>

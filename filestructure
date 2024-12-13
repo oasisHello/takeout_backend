@@ -1,0 +1,1760 @@
+C:.
+│  .gitignore
+│  .project
+│  LICENSE
+│  pom.xml
+│  README.md
+│  ry.bat
+│  ry.sh
+│
+├─.github
+│      FUNDING.yml
+│
+├─.settings
+│      org.eclipse.core.resources.prefs
+│
+├─bin
+│      clean.bat
+│      package.bat
+│      run.bat
+│
+├─doc
+│      若依环境使用手册.docx
+│
+├─ruoyi-admin(Service)
+│  │  .classpath
+│  │  .project
+│  │  pom.xml
+│  │
+│  ├─.settings
+│  │      org.eclipse.core.resources.prefs
+│  │      org.eclipse.jdt.core.prefs
+│  │
+│  ├─src
+│  │  └─main
+│  │      ├─java
+│  │      │  └─com
+│  │      │      └─ruoyi(entry point)
+│  │      │          │  RuoYiApplication.java(springboot with tomcat)
+│  │      │          │  RuoYiServletInitializer.java
+│  │      │          │
+│  │      │          ├─system
+│  │      │          │  ├─controller
+│  │      │          │  │      CoursesController.java
+│  │      │          │  │
+│  │      │          │  ├─domain
+│  │      │          │  │      Courses.java
+│  │      │          │  │
+│  │      │          │  ├─mapper
+│  │      │          │  │      CoursesMapper.java
+│  │      │          │  │
+│  │      │          │  └─service
+│  │      │          │      │  ICoursesService.java
+│  │      │          │      │
+│  │      │          │      └─impl
+│  │      │          │              CoursesServiceImpl.java
+│  │      │          │
+│  │      │          └─web
+│  │      │              ├─controller
+│  │      │              │  ├─common
+│  │      │              │  │      CaptchaController.java
+│  │      │              │  │      CommonController.java
+│  │      │              │  │
+│  │      │              │  ├─monitor
+│  │      │              │  │      CacheController.java
+│  │      │              │  │      ServerController.java
+│  │      │              │  │      SysLogininforController.java
+│  │      │              │  │      SysOperlogController.java
+│  │      │              │  │      SysUserOnlineController.java
+│  │      │              │  │
+│  │      │              │  ├─system
+│  │      │              │  │      SysConfigController.java
+│  │      │              │  │      SysDeptController.java
+│  │      │              │  │      SysDictDataController.java
+│  │      │              │  │      SysDictTypeController.java
+│  │      │              │  │      SysIndexController.java
+│  │      │              │  │      SysLoginController.java
+│  │      │              │  │      SysMenuController.java
+│  │      │              │  │      SysNoticeController.java
+│  │      │              │  │      SysPostController.java
+│  │      │              │  │      SysProfileController.java
+│  │      │              │  │      SysRegisterController.java
+│  │      │              │  │      SysRoleController.java
+│  │      │              │  │      SysUserController.java
+│  │      │              │  │
+│  │      │              │  └─tool
+│  │      │              │          TestController.java
+│  │      │              │
+│  │      │              └─core
+│  │      │                  └─config
+│  │      │                          SwaggerConfig.java
+│  │      │
+│  │      └─resources
+│  │          │  application-druid.yml(configuration for database connection)
+│  │          │  application.yml(core configuration.)
+│  │          │  banner.txt(starting pattern in console)
+│  │          │  logback.xml
+│  │          │
+│  │          ├─i18n(Localization)
+│  │          │      messages.properties
+│  │          │
+│  │          ├─mapper
+│  │          │  └─course
+│  │          │          CoursesMapper.xml
+│  │          │
+│  │          ├─META-INF
+│  │          │      spring-devtools.properties
+│  │          │
+│  │          └─mybatis
+│  │                  mybatis-config.xml
+│  │
+│  └─target
+│      │  ruoyi-admin.jar
+│      │  ruoyi-admin.jar.original
+│      │
+│      ├─classes
+│      │  │  application-druid.yml
+│      │  │  application.yml
+│      │  │  banner.txt
+│      │  │  logback.xml
+│      │  │
+│      │  ├─com
+│      │  │  └─ruoyi
+│      │  │      │  RuoYiApplication.class
+│      │  │      │  RuoYiServletInitializer.class
+│      │  │      │
+│      │  │      ├─system
+│      │  │      │  ├─controller
+│      │  │      │  │      CoursesController.class
+│      │  │      │  │
+│      │  │      │  ├─domain
+│      │  │      │  │      Courses.class
+│      │  │      │  │
+│      │  │      │  ├─mapper
+│      │  │      │  │      CoursesMapper.class
+│      │  │      │  │
+│      │  │      │  └─service
+│      │  │      │      │  ICoursesService.class
+│      │  │      │      │
+│      │  │      │      └─impl
+│      │  │      │              CoursesServiceImpl.class
+│      │  │      │
+│      │  │      └─web
+│      │  │          ├─controller
+│      │  │          │  ├─common
+│      │  │          │  │      CaptchaController.class
+│      │  │          │  │      CommonController.class
+│      │  │          │  │
+│      │  │          │  ├─monitor
+│      │  │          │  │      CacheController.class
+│      │  │          │  │      ServerController.class
+│      │  │          │  │      SysLogininforController.class
+│      │  │          │  │      SysOperlogController.class
+│      │  │          │  │      SysUserOnlineController.class
+│      │  │          │  │
+│      │  │          │  ├─system
+│      │  │          │  │      SysConfigController.class
+│      │  │          │  │      SysDeptController.class
+│      │  │          │  │      SysDictDataController.class
+│      │  │          │  │      SysDictTypeController.class
+│      │  │          │  │      SysIndexController.class
+│      │  │          │  │      SysLoginController.class
+│      │  │          │  │      SysMenuController.class
+│      │  │          │  │      SysNoticeController.class
+│      │  │          │  │      SysPostController.class
+│      │  │          │  │      SysProfileController.class
+│      │  │          │  │      SysRegisterController.class
+│      │  │          │  │      SysRoleController.class
+│      │  │          │  │      SysUserController.class
+│      │  │          │  │
+│      │  │          │  └─tool
+│      │  │          │          TestController.class
+│      │  │          │          UserEntity.class
+│      │  │          │
+│      │  │          └─core
+│      │  │              └─config
+│      │  │                      SwaggerConfig.class
+│      │  │
+│      │  ├─i18n
+│      │  │      messages.properties
+│      │  │
+│      │  ├─mapper
+│      │  │  └─course
+│      │  │          CoursesMapper.xml
+│      │  │
+│      │  ├─META-INF
+│      │  │  │  MANIFEST.MF
+│      │  │  │  spring-devtools.properties
+│      │  │  │
+│      │  │  └─maven
+│      │  │      └─com.ruoyi
+│      │  │          └─ruoyi-admin
+│      │  │                  pom.properties
+│      │  │                  pom.xml
+│      │  │
+│      │  └─mybatis
+│      │          mybatis-config.xml
+│      │
+│      ├─generated-sources
+│      │  └─annotations
+│      ├─maven-archiver
+│      │      pom.properties
+│      │
+│      └─maven-status
+│          └─maven-compiler-plugin
+│              └─compile
+│                  └─default-compile
+│                          createdFiles.lst
+│                          inputFiles.lst
+│
+├─ruoyi-common
+│  │  .classpath
+│  │  .project
+│  │  pom.xml
+│  │
+│  ├─.settings
+│  │      org.eclipse.core.resources.prefs
+│  │      org.eclipse.jdt.core.prefs
+│  │
+│  ├─src
+│  │  └─main
+│  │      └─java
+│  │          └─com
+│  │              └─ruoyi
+│  │                  └─common(Base code)
+│  │                      ├─annotation(Custom Annotations)
+│  │                      │      Anonymous.java
+│  │                      │      DataScope.java
+│  │                      │      DataSource.java
+│  │                      │      Excel.java
+│  │                      │      Excels.java
+│  │                      │      Log.java
+│  │                      │      RateLimiter.java
+│  │                      │      RepeatSubmit.java
+│  │                      │      Sensitive.java
+│  │                      │
+│  │                      ├─config(Global Configuration)
+│  │                      │  │  RuoYiConfig.java
+│  │                      │  │
+│  │                      │  └─serializer
+│  │                      │          SensitiveJsonSerializer.java
+│  │                      │
+│  │                      ├─constant(Common constant)
+│  │                      │      CacheConstants.java
+│  │                      │      Constants.java
+│  │                      │      GenConstants.java
+│  │                      │      HttpStatus.java
+│  │                      │      ScheduleConstants.java
+│  │                      │      UserConstants.java
+│  │                      │
+│  │                      ├─core(Core controller)
+│  │                      │  ├─controller
+│  │                      │  │      BaseController.java(Base controller for all.)
+│  │                      │  │
+│  │                      │  ├─domain
+│  │                      │  │  │  AjaxResult.java
+│  │                      │  │  │  BaseEntity.java
+│  │                      │  │  │  R.java
+│  │                      │  │  │  TreeEntity.java
+│  │                      │  │  │  TreeSelect.java
+│  │                      │  │  │
+│  │                      │  │  ├─entity
+│  │                      │  │  │      SysDept.java
+│  │                      │  │  │      SysDictData.java
+│  │                      │  │  │      SysDictType.java
+│  │                      │  │  │      SysMenu.java
+│  │                      │  │  │      SysRole.java
+│  │                      │  │  │      SysUser.java
+│  │                      │  │  │
+│  │                      │  │  └─model
+│  │                      │  │          LoginBody.java
+│  │                      │  │          LoginUser.java
+│  │                      │  │          RegisterBody.java
+│  │                      │  │
+│  │                      │  ├─page
+│  │                      │  │      PageDomain.java
+│  │                      │  │      TableDataInfo.java
+│  │                      │  │      TableSupport.java
+│  │                      │  │
+│  │                      │  ├─redis
+│  │                      │  │      RedisCache.java
+│  │                      │  │
+│  │                      │  └─text
+│  │                      │          CharsetKit.java
+│  │                      │          Convert.java
+│  │                      │          StrFormatter.java
+│  │                      │
+│  │                      ├─enums
+│  │                      │      BusinessStatus.java
+│  │                      │      BusinessType.java
+│  │                      │      DataSourceType.java
+│  │                      │      DesensitizedType.java
+│  │                      │      HttpMethod.java
+│  │                      │      LimitType.java
+│  │                      │      OperatorType.java
+│  │                      │      UserStatus.java
+│  │                      │
+│  │                      ├─exception(Custom exception)
+│  │                      │  │  DemoModeException.java
+│  │                      │  │  GlobalException.java
+│  │                      │  │  ServiceException.java
+│  │                      │  │  UtilException.java
+│  │                      │  │
+│  │                      │  ├─base
+│  │                      │  │      BaseException.java
+│  │                      │  │
+│  │                      │  ├─file
+│  │                      │  │      FileException.java
+│  │                      │  │      FileNameLengthLimitExceededException.java
+│  │                      │  │      FileSizeLimitExceededException.java
+│  │                      │  │      FileUploadException.java
+│  │                      │  │      InvalidExtensionException.java
+│  │                      │  │
+│  │                      │  ├─job
+│  │                      │  │      TaskException.java
+│  │                      │  │
+│  │                      │  └─user
+│  │                      │          BlackListException.java
+│  │                      │          CaptchaException.java
+│  │                      │          CaptchaExpireException.java
+│  │                      │          UserException.java
+│  │                      │          UserNotExistsException.java
+│  │                      │          UserPasswordNotMatchException.java
+│  │                      │          UserPasswordRetryLimitExceedException.java
+│  │                      │
+│  │                      ├─filter
+│  │                      │      PropertyPreExcludeFilter.java
+│  │                      │      RepeatableFilter.java
+│  │                      │      RepeatedlyRequestWrapper.java
+│  │                      │      XssFilter.java
+│  │                      │      XssHttpServletRequestWrapper.java
+│  │                      │
+│  │                      ├─utils
+│  │                      │  │  Arith.java
+│  │                      │  │  DateUtils.java
+│  │                      │  │  DesensitizedUtil.java
+│  │                      │  │  DictUtils.java
+│  │                      │  │  ExceptionUtil.java
+│  │                      │  │  LogUtils.java
+│  │                      │  │  MessageUtils.java
+│  │                      │  │  PageUtils.java
+│  │                      │  │  SecurityUtils.java
+│  │                      │  │  ServletUtils.java
+│  │                      │  │  StringUtils.java
+│  │                      │  │  Threads.java
+│  │                      │  │
+│  │                      │  ├─bean
+│  │                      │  │      BeanUtils.java
+│  │                      │  │      BeanValidators.java
+│  │                      │  │
+│  │                      │  ├─file
+│  │                      │  │      FileTypeUtils.java
+│  │                      │  │      FileUploadUtils.java
+│  │                      │  │      FileUtils.java
+│  │                      │  │      ImageUtils.java
+│  │                      │  │      MimeTypeUtils.java
+│  │                      │  │
+│  │                      │  ├─html
+│  │                      │  │      EscapeUtil.java
+│  │                      │  │      HTMLFilter.java
+│  │                      │  │
+│  │                      │  ├─http
+│  │                      │  │      HttpHelper.java
+│  │                      │  │      HttpUtils.java
+│  │                      │  │
+│  │                      │  ├─ip
+│  │                      │  │      AddressUtils.java
+│  │                      │  │      IpUtils.java
+│  │                      │  │
+│  │                      │  ├─poi
+│  │                      │  │      ExcelHandlerAdapter.java
+│  │                      │  │      ExcelUtil.java
+│  │                      │  │
+│  │                      │  ├─reflect
+│  │                      │  │      ReflectUtils.java
+│  │                      │  │
+│  │                      │  ├─sign
+│  │                      │  │      Base64.java
+│  │                      │  │      Md5Utils.java
+│  │                      │  │
+│  │                      │  ├─spring
+│  │                      │  │      SpringUtils.java
+│  │                      │  │
+│  │                      │  ├─sql
+│  │                      │  │      SqlUtil.java
+│  │                      │  │
+│  │                      │  └─uuid
+│  │                      │          IdUtils.java
+│  │                      │          Seq.java
+│  │                      │          UUID.java
+│  │                      │
+│  │                      └─xss
+│  │                              Xss.java
+│  │                              XssValidator.java
+│  │
+│  └─target
+│      │  ruoyi-common-3.8.8.jar
+│      │
+│      ├─classes
+│      │  ├─com
+│      │  │  └─ruoyi
+│      │  │      └─common
+│      │  │          ├─annotation
+│      │  │          │      Anonymous.class
+│      │  │          │      DataScope.class
+│      │  │          │      DataSource.class
+│      │  │          │      Excel$ColumnType.class
+│      │  │          │      Excel$Type.class
+│      │  │          │      Excel.class
+│      │  │          │      Excels.class
+│      │  │          │      Log.class
+│      │  │          │      RateLimiter.class
+│      │  │          │      RepeatSubmit.class
+│      │  │          │      Sensitive.class
+│      │  │          │
+│      │  │          ├─config
+│      │  │          │  │  RuoYiConfig.class
+│      │  │          │  │
+│      │  │          │  └─serializer
+│      │  │          │          SensitiveJsonSerializer.class
+│      │  │          │
+│      │  │          ├─constant
+│      │  │          │      CacheConstants.class
+│      │  │          │      Constants.class
+│      │  │          │      GenConstants.class
+│      │  │          │      HttpStatus.class
+│      │  │          │      ScheduleConstants$Status.class
+│      │  │          │      ScheduleConstants.class
+│      │  │          │      UserConstants.class
+│      │  │          │
+│      │  │          ├─core
+│      │  │          │  ├─controller
+│      │  │          │  │      BaseController$1.class
+│      │  │          │  │      BaseController.class
+│      │  │          │  │
+│      │  │          │  ├─domain
+│      │  │          │  │  │  AjaxResult.class
+│      │  │          │  │  │  BaseEntity.class
+│      │  │          │  │  │  R.class
+│      │  │          │  │  │  TreeEntity.class
+│      │  │          │  │  │  TreeSelect.class
+│      │  │          │  │  │
+│      │  │          │  │  ├─entity
+│      │  │          │  │  │      SysDept.class
+│      │  │          │  │  │      SysDictData.class
+│      │  │          │  │  │      SysDictType.class
+│      │  │          │  │  │      SysMenu.class
+│      │  │          │  │  │      SysRole.class
+│      │  │          │  │  │      SysUser.class
+│      │  │          │  │  │
+│      │  │          │  │  └─model
+│      │  │          │  │          LoginBody.class
+│      │  │          │  │          LoginUser.class
+│      │  │          │  │          RegisterBody.class
+│      │  │          │  │
+│      │  │          │  ├─page
+│      │  │          │  │      PageDomain.class
+│      │  │          │  │      TableDataInfo.class
+│      │  │          │  │      TableSupport.class
+│      │  │          │  │
+│      │  │          │  ├─redis
+│      │  │          │  │      RedisCache.class
+│      │  │          │  │
+│      │  │          │  └─text
+│      │  │          │          CharsetKit.class
+│      │  │          │          Convert.class
+│      │  │          │          StrFormatter.class
+│      │  │          │
+│      │  │          ├─enums
+│      │  │          │      BusinessStatus.class
+│      │  │          │      BusinessType.class
+│      │  │          │      DataSourceType.class
+│      │  │          │      DesensitizedType.class
+│      │  │          │      HttpMethod.class
+│      │  │          │      LimitType.class
+│      │  │          │      OperatorType.class
+│      │  │          │      UserStatus.class
+│      │  │          │
+│      │  │          ├─exception
+│      │  │          │  │  DemoModeException.class
+│      │  │          │  │  GlobalException.class
+│      │  │          │  │  ServiceException.class
+│      │  │          │  │  UtilException.class
+│      │  │          │  │
+│      │  │          │  ├─base
+│      │  │          │  │      BaseException.class
+│      │  │          │  │
+│      │  │          │  ├─file
+│      │  │          │  │      FileException.class
+│      │  │          │  │      FileNameLengthLimitExceededException.class
+│      │  │          │  │      FileSizeLimitExceededException.class
+│      │  │          │  │      FileUploadException.class
+│      │  │          │  │      InvalidExtensionException$InvalidFlashExtensionException.class
+│      │  │          │  │      InvalidExtensionException$InvalidImageExtensionException.class
+│      │  │          │  │      InvalidExtensionException$InvalidMediaExtensionException.class
+│      │  │          │  │      InvalidExtensionException$InvalidVideoExtensionException.class
+│      │  │          │  │      InvalidExtensionException.class
+│      │  │          │  │
+│      │  │          │  ├─job
+│      │  │          │  │      TaskException$Code.class
+│      │  │          │  │      TaskException.class
+│      │  │          │  │
+│      │  │          │  └─user
+│      │  │          │          BlackListException.class
+│      │  │          │          CaptchaException.class
+│      │  │          │          CaptchaExpireException.class
+│      │  │          │          UserException.class
+│      │  │          │          UserNotExistsException.class
+│      │  │          │          UserPasswordNotMatchException.class
+│      │  │          │          UserPasswordRetryLimitExceedException.class
+│      │  │          │
+│      │  │          ├─filter
+│      │  │          │      PropertyPreExcludeFilter.class
+│      │  │          │      RepeatableFilter.class
+│      │  │          │      RepeatedlyRequestWrapper$1.class
+│      │  │          │      RepeatedlyRequestWrapper.class
+│      │  │          │      XssFilter.class
+│      │  │          │      XssHttpServletRequestWrapper$1.class
+│      │  │          │      XssHttpServletRequestWrapper.class
+│      │  │          │
+│      │  │          ├─utils
+│      │  │          │  │  Arith.class
+│      │  │          │  │  DateUtils.class
+│      │  │          │  │  DesensitizedUtil.class
+│      │  │          │  │  DictUtils.class
+│      │  │          │  │  ExceptionUtil.class
+│      │  │          │  │  LogUtils.class
+│      │  │          │  │  MessageUtils.class
+│      │  │          │  │  PageUtils.class
+│      │  │          │  │  SecurityUtils.class
+│      │  │          │  │  ServletUtils.class
+│      │  │          │  │  StringUtils.class
+│      │  │          │  │  Threads.class
+│      │  │          │  │
+│      │  │          │  ├─bean
+│      │  │          │  │      BeanUtils.class
+│      │  │          │  │      BeanValidators.class
+│      │  │          │  │
+│      │  │          │  ├─file
+│      │  │          │  │      FileTypeUtils.class
+│      │  │          │  │      FileUploadUtils.class
+│      │  │          │  │      FileUtils.class
+│      │  │          │  │      ImageUtils.class
+│      │  │          │  │      MimeTypeUtils.class
+│      │  │          │  │
+│      │  │          │  ├─html
+│      │  │          │  │      EscapeUtil.class
+│      │  │          │  │      HTMLFilter.class
+│      │  │          │  │
+│      │  │          │  ├─http
+│      │  │          │  │      HttpHelper.class
+│      │  │          │  │      HttpUtils$1.class
+│      │  │          │  │      HttpUtils$TrustAnyHostnameVerifier.class
+│      │  │          │  │      HttpUtils$TrustAnyTrustManager.class
+│      │  │          │  │      HttpUtils.class
+│      │  │          │  │
+│      │  │          │  ├─ip
+│      │  │          │  │      AddressUtils.class
+│      │  │          │  │      IpUtils.class
+│      │  │          │  │
+│      │  │          │  ├─poi
+│      │  │          │  │      ExcelHandlerAdapter.class
+│      │  │          │  │      ExcelUtil.class
+│      │  │          │  │
+│      │  │          │  ├─reflect
+│      │  │          │  │      ReflectUtils.class
+│      │  │          │  │
+│      │  │          │  ├─sign
+│      │  │          │  │      Base64.class
+│      │  │          │  │      Md5Utils.class
+│      │  │          │  │
+│      │  │          │  ├─spring
+│      │  │          │  │      SpringUtils.class
+│      │  │          │  │
+│      │  │          │  ├─sql
+│      │  │          │  │      SqlUtil.class
+│      │  │          │  │
+│      │  │          │  └─uuid
+│      │  │          │          IdUtils.class
+│      │  │          │          Seq.class
+│      │  │          │          UUID$Holder.class
+│      │  │          │          UUID.class
+│      │  │          │
+│      │  │          └─xss
+│      │  │                  Xss.class
+│      │  │                  XssValidator.class
+│      │  │
+│      │  └─META-INF
+│      │      │  MANIFEST.MF
+│      │      │
+│      │      └─maven
+│      │          └─com.ruoyi
+│      │              └─ruoyi-common
+│      │                      pom.properties
+│      │                      pom.xml
+│      │
+│      ├─generated-sources
+│      │  └─annotations
+│      ├─maven-archiver
+│      │      pom.properties
+│      │
+│      └─maven-status
+│          └─maven-compiler-plugin
+│              └─compile
+│                  └─default-compile
+│                          createdFiles.lst
+│                          inputFiles.lst
+│
+├─ruoyi-framework(framework)
+│  │  .classpath
+│  │  .project
+│  │  pom.xml
+│  │
+│  ├─.settings
+│  │      org.eclipse.core.resources.prefs
+│  │      org.eclipse.jdt.core.prefs
+│  │
+│  ├─src
+│  │  └─main
+│  │      └─java
+│  │          └─com
+│  │              └─ruoyi
+│  │                  └─framework
+│  │                      ├─aspectj(Customized AOP)
+│  │                      │      DataScopeAspect.java
+│  │                      │      DataSourceAspect.java
+│  │                      │      LogAspect.java
+│  │                      │      RateLimiterAspect.java
+│  │                      │
+│  │                      ├─config
+│  │                      │  │  ApplicationConfig.java
+│  │                      │  │  CaptchaConfig.java
+│  │                      │  │  DruidConfig.java
+│  │                      │  │  FastJson2JsonRedisSerializer.java
+│  │                      │  │  FilterConfig.java
+│  │                      │  │  I18nConfig.java
+│  │                      │  │  KaptchaTextCreator.java
+│  │                      │  │  MyBatisConfig.java
+│  │                      │  │  RedisConfig.java
+│  │                      │  │  ResourcesConfig.java
+│  │                      │  │  SecurityConfig.java
+│  │                      │  │  ServerConfig.java
+│  │                      │  │  ThreadPoolConfig.java
+│  │                      │  │
+│  │                      │  └─properties
+│  │                      │          DruidProperties.java
+│  │                      │          PermitAllUrlProperties.java
+│  │                      │
+│  │                      ├─datasource(Multi-databases)
+│  │                      │      DynamicDataSource.java
+│  │                      │      DynamicDataSourceContextHolder.java
+│  │                      │
+│  │                      ├─interceptor
+│  │                      │  │  RepeatSubmitInterceptor.java
+│  │                      │  │
+│  │                      │  └─impl
+│  │                      │          SameUrlDataInterceptor.java
+│  │                      │
+│  │                      ├─manager(Async)
+│  │                      │  │  AsyncManager.java
+│  │                      │  │  ShutdownManager.java
+│  │                      │  │
+│  │                      │  └─factory
+│  │                      │          AsyncFactory.java
+│  │                      │
+│  │                      ├─security()
+│  │                      │  ├─context
+│  │                      │  │      AuthenticationContextHolder.java
+│  │                      │  │      PermissionContextHolder.java
+│  │                      │  │
+│  │                      │  ├─filter
+│  │                      │  │      JwtAuthenticationTokenFilter.java
+│  │                      │  │
+│  │                      │  └─handle
+│  │                      │          AuthenticationEntryPointImpl.java
+│  │                      │          LogoutSuccessHandlerImpl.java
+│  │                      │
+│  │                      └─web
+│  │                          ├─domain
+│  │                          │  │  Server.java
+│  │                          │  │
+│  │                          │  └─server
+│  │                          │          Cpu.java
+│  │                          │          Jvm.java
+│  │                          │          Mem.java
+│  │                          │          Sys.java
+│  │                          │          SysFile.java
+│  │                          │
+│  │                          ├─exception
+│  │                          │      GlobalExceptionHandler.java
+│  │                          │
+│  │                          └─service
+│  │                                  PermissionService.java
+│  │                                  SysLoginService.java
+│  │                                  SysPasswordService.java
+│  │                                  SysPermissionService.java
+│  │                                  SysRegisterService.java
+│  │                                  TokenService.java
+│  │                                  UserDetailsServiceImpl.java
+│  │
+│  └─target
+│      │  ruoyi-framework-3.8.8.jar
+│      │
+│      ├─classes
+│      │  ├─com
+│      │  │  └─ruoyi
+│      │  │      └─framework
+│      │  │          ├─aspectj
+│      │  │          │      DataScopeAspect.class
+│      │  │          │      DataSourceAspect.class
+│      │  │          │      LogAspect.class
+│      │  │          │      RateLimiterAspect.class
+│      │  │          │
+│      │  │          ├─config
+│      │  │          │  │  ApplicationConfig.class
+│      │  │          │  │  CaptchaConfig.class
+│      │  │          │  │  DruidConfig$1.class
+│      │  │          │  │  DruidConfig.class
+│      │  │          │  │  FastJson2JsonRedisSerializer.class
+│      │  │          │  │  FilterConfig.class
+│      │  │          │  │  I18nConfig.class
+│      │  │          │  │  KaptchaTextCreator.class
+│      │  │          │  │  MyBatisConfig.class
+│      │  │          │  │  RedisConfig.class
+│      │  │          │  │  ResourcesConfig.class
+│      │  │          │  │  SecurityConfig.class
+│      │  │          │  │  ServerConfig.class
+│      │  │          │  │  ThreadPoolConfig$1.class
+│      │  │          │  │  ThreadPoolConfig.class
+│      │  │          │  │
+│      │  │          │  └─properties
+│      │  │          │          DruidProperties.class
+│      │  │          │          PermitAllUrlProperties.class
+│      │  │          │
+│      │  │          ├─datasource
+│      │  │          │      DynamicDataSource.class
+│      │  │          │      DynamicDataSourceContextHolder.class
+│      │  │          │
+│      │  │          ├─interceptor
+│      │  │          │  │  RepeatSubmitInterceptor.class
+│      │  │          │  │
+│      │  │          │  └─impl
+│      │  │          │          SameUrlDataInterceptor.class
+│      │  │          │
+│      │  │          ├─manager
+│      │  │          │  │  AsyncManager.class
+│      │  │          │  │  ShutdownManager.class
+│      │  │          │  │
+│      │  │          │  └─factory
+│      │  │          │          AsyncFactory$1.class
+│      │  │          │          AsyncFactory$2.class
+│      │  │          │          AsyncFactory.class
+│      │  │          │
+│      │  │          ├─security
+│      │  │          │  ├─context
+│      │  │          │  │      AuthenticationContextHolder.class
+│      │  │          │  │      PermissionContextHolder.class
+│      │  │          │  │
+│      │  │          │  ├─filter
+│      │  │          │  │      JwtAuthenticationTokenFilter.class
+│      │  │          │  │
+│      │  │          │  └─handle
+│      │  │          │          AuthenticationEntryPointImpl.class
+│      │  │          │          LogoutSuccessHandlerImpl.class
+│      │  │          │
+│      │  │          └─web
+│      │  │              ├─domain
+│      │  │              │  │  Server.class
+│      │  │              │  │
+│      │  │              │  └─server
+│      │  │              │          Cpu.class
+│      │  │              │          Jvm.class
+│      │  │              │          Mem.class
+│      │  │              │          Sys.class
+│      │  │              │          SysFile.class
+│      │  │              │
+│      │  │              ├─exception
+│      │  │              │      GlobalExceptionHandler.class
+│      │  │              │
+│      │  │              └─service
+│      │  │                      PermissionService.class
+│      │  │                      SysLoginService.class
+│      │  │                      SysPasswordService.class
+│      │  │                      SysPermissionService.class
+│      │  │                      SysRegisterService.class
+│      │  │                      TokenService.class
+│      │  │                      UserDetailsServiceImpl.class
+│      │  │
+│      │  └─META-INF
+│      │      │  MANIFEST.MF
+│      │      │
+│      │      └─maven
+│      │          └─com.ruoyi
+│      │              └─ruoyi-framework
+│      │                      pom.properties
+│      │                      pom.xml
+│      │
+│      ├─generated-sources
+│      │  └─annotations
+│      ├─maven-archiver
+│      │      pom.properties
+│      │
+│      └─maven-status
+│          └─maven-compiler-plugin
+│              └─compile
+│                  └─default-compile
+│                          createdFiles.lst
+│                          inputFiles.lst
+│
+├─ruoyi-generator(auto generation of code, removable)
+│  │  .classpath
+│  │  .project
+│  │  pom.xml
+│  │
+│  ├─.settings
+│  │      org.eclipse.core.resources.prefs
+│  │      org.eclipse.jdt.core.prefs
+│  │
+│  ├─src
+│  │  └─main
+│  │      ├─java
+│  │      │  └─com
+│  │      │      └─ruoyi
+│  │      │          └─generator
+│  │      │              ├─config
+│  │      │              │      GenConfig.java
+│  │      │              │
+│  │      │              ├─controller
+│  │      │              │      GenController.java
+│  │      │              │
+│  │      │              ├─domain
+│  │      │              │      GenTable.java
+│  │      │              │      GenTableColumn.java
+│  │      │              │
+│  │      │              ├─mapper
+│  │      │              │      GenTableColumnMapper.java
+│  │      │              │      GenTableMapper.java
+│  │      │              │
+│  │      │              ├─service
+│  │      │              │      GenTableColumnServiceImpl.java
+│  │      │              │      GenTableServiceImpl.java
+│  │      │              │      IGenTableColumnService.java
+│  │      │              │      IGenTableService.java
+│  │      │              │
+│  │      │              └─util
+│  │      │                      GenUtils.java
+│  │      │                      VelocityInitializer.java
+│  │      │                      VelocityUtils.java
+│  │      │
+│  │      └─resources
+│  │          │  generator.yml
+│  │          │
+│  │          ├─mapper
+│  │          │  └─generator
+│  │          │          GenTableColumnMapper.xml
+│  │          │          GenTableMapper.xml
+│  │          │
+│  │          └─vm
+│  │              ├─java
+│  │              │      controller.java.vm
+│  │              │      domain.java.vm
+│  │              │      mapper.java.vm
+│  │              │      service.java.vm
+│  │              │      serviceImpl.java.vm
+│  │              │      sub-domain.java.vm
+│  │              │
+│  │              ├─js
+│  │              │      api.js.vm
+│  │              │
+│  │              ├─sql
+│  │              │      sql.vm
+│  │              │
+│  │              ├─vue
+│  │              │  │  index-tree.vue.vm
+│  │              │  │  index.vue.vm
+│  │              │  │
+│  │              │  └─v3
+│  │              │          index-tree.vue.vm
+│  │              │          index.vue.vm
+│  │              │
+│  │              └─xml
+│  │                      mapper.xml.vm
+│  │
+│  └─target
+│      │  ruoyi-generator-3.8.8.jar
+│      │
+│      ├─classes
+│      │  │  generator.yml
+│      │  │
+│      │  ├─com
+│      │  │  └─ruoyi
+│      │  │      └─generator
+│      │  │          ├─config
+│      │  │          │      GenConfig.class
+│      │  │          │
+│      │  │          ├─controller
+│      │  │          │      GenController.class
+│      │  │          │
+│      │  │          ├─domain
+│      │  │          │      GenTable.class
+│      │  │          │      GenTableColumn.class
+│      │  │          │
+│      │  │          ├─mapper
+│      │  │          │      GenTableColumnMapper.class
+│      │  │          │      GenTableMapper.class
+│      │  │          │
+│      │  │          ├─service
+│      │  │          │      GenTableColumnServiceImpl.class
+│      │  │          │      GenTableServiceImpl.class
+│      │  │          │      IGenTableColumnService.class
+│      │  │          │      IGenTableService.class
+│      │  │          │
+│      │  │          └─util
+│      │  │                  GenUtils.class
+│      │  │                  VelocityInitializer.class
+│      │  │                  VelocityUtils.class
+│      │  │
+│      │  ├─mapper
+│      │  │  └─generator
+│      │  │          GenTableColumnMapper.xml
+│      │  │          GenTableMapper.xml
+│      │  │
+│      │  ├─META-INF
+│      │  │  │  MANIFEST.MF
+│      │  │  │
+│      │  │  └─maven
+│      │  │      └─com.ruoyi
+│      │  │          └─ruoyi-generator
+│      │  │                  pom.properties
+│      │  │                  pom.xml
+│      │  │
+│      │  └─vm
+│      │      ├─java
+│      │      │      controller.java.vm
+│      │      │      domain.java.vm
+│      │      │      mapper.java.vm
+│      │      │      service.java.vm
+│      │      │      serviceImpl.java.vm
+│      │      │      sub-domain.java.vm
+│      │      │
+│      │      ├─js
+│      │      │      api.js.vm
+│      │      │
+│      │      ├─sql
+│      │      │      sql.vm
+│      │      │
+│      │      ├─vue
+│      │      │  │  index-tree.vue.vm
+│      │      │  │  index.vue.vm
+│      │      │  │
+│      │      │  └─v3
+│      │      │          index-tree.vue.vm
+│      │      │          index.vue.vm
+│      │      │
+│      │      └─xml
+│      │              mapper.xml.vm
+│      │
+│      ├─generated-sources
+│      │  └─annotations
+│      ├─maven-archiver
+│      │      pom.properties
+│      │
+│      └─maven-status
+│          └─maven-compiler-plugin
+│              └─compile
+│                  └─default-compile
+│                          createdFiles.lst
+│                          inputFiles.lst
+│
+├─ruoyi-quartz(Task scheduling, removable)
+│  │  .classpath
+│  │  .project
+│  │  pom.xml
+│  │
+│  ├─.settings
+│  │      org.eclipse.core.resources.prefs
+│  │
+│  ├─src
+│  │  └─main
+│  │      ├─java
+│  │      │  └─com
+│  │      │      └─ruoyi
+│  │      │          └─quartz
+│  │      │              ├─config
+│  │      │              │      ScheduleConfig.java
+│  │      │              │
+│  │      │              ├─controller
+│  │      │              │      SysJobController.java
+│  │      │              │      SysJobLogController.java
+│  │      │              │
+│  │      │              ├─domain
+│  │      │              │      SysJob.java
+│  │      │              │      SysJobLog.java
+│  │      │              │
+│  │      │              ├─mapper
+│  │      │              │      SysJobLogMapper.java
+│  │      │              │      SysJobMapper.java
+│  │      │              │
+│  │      │              ├─service
+│  │      │              │  │  ISysJobLogService.java
+│  │      │              │  │  ISysJobService.java
+│  │      │              │  │
+│  │      │              │  └─impl
+│  │      │              │          SysJobLogServiceImpl.java
+│  │      │              │          SysJobServiceImpl.java
+│  │      │              │
+│  │      │              ├─task
+│  │      │              │      MyTask.java
+│  │      │              │      RyTask.java
+│  │      │              │
+│  │      │              └─util
+│  │      │                      AbstractQuartzJob.java
+│  │      │                      CronUtils.java
+│  │      │                      JobInvokeUtil.java
+│  │      │                      QuartzDisallowConcurrentExecution.java
+│  │      │                      QuartzJobExecution.java
+│  │      │                      ScheduleUtils.java
+│  │      │
+│  │      └─resources
+│  │          └─mapper
+│  │              └─quartz
+│  │                      SysJobLogMapper.xml
+│  │                      SysJobMapper.xml
+│  │
+│  └─target
+│      │  ruoyi-quartz-3.8.8.jar
+│      │
+│      ├─classes
+│      │  ├─com
+│      │  │  └─ruoyi
+│      │  │      └─quartz
+│      │  │          ├─config
+│      │  │          ├─controller
+│      │  │          │      SysJobController.class
+│      │  │          │      SysJobLogController.class
+│      │  │          │
+│      │  │          ├─domain
+│      │  │          │      SysJob.class
+│      │  │          │      SysJobLog.class
+│      │  │          │
+│      │  │          ├─mapper
+│      │  │          │      SysJobLogMapper.class
+│      │  │          │      SysJobMapper.class
+│      │  │          │
+│      │  │          ├─service
+│      │  │          │  │  ISysJobLogService.class
+│      │  │          │  │  ISysJobService.class
+│      │  │          │  │
+│      │  │          │  └─impl
+│      │  │          │          SysJobLogServiceImpl.class
+│      │  │          │          SysJobServiceImpl.class
+│      │  │          │
+│      │  │          ├─task
+│      │  │          │      MyTask.class
+│      │  │          │      RyTask.class
+│      │  │          │
+│      │  │          └─util
+│      │  │                  AbstractQuartzJob.class
+│      │  │                  CronUtils.class
+│      │  │                  JobInvokeUtil.class
+│      │  │                  QuartzDisallowConcurrentExecution.class
+│      │  │                  QuartzJobExecution.class
+│      │  │                  ScheduleUtils.class
+│      │  │
+│      │  ├─mapper
+│      │  │  └─quartz
+│      │  │          SysJobLogMapper.xml
+│      │  │          SysJobMapper.xml
+│      │  │
+│      │  └─META-INF
+│      │      │  MANIFEST.MF
+│      │      │
+│      │      └─maven
+│      │          └─com.ruoyi
+│      │              └─ruoyi-quartz
+│      │                      pom.properties
+│      │                      pom.xml
+│      │
+│      ├─generated-sources
+│      │  └─annotations
+│      ├─maven-archiver
+│      │      pom.properties
+│      │
+│      └─maven-status
+│          └─maven-compiler-plugin
+│              └─compile
+│                  └─default-compile
+│                          createdFiles.lst
+│                          inputFiles.lst
+│
+├─ruoyi-system
+│  │  .classpath
+│  │  .project
+│  │  pom.xml
+│  │
+│  ├─.settings
+│  │      org.eclipse.core.resources.prefs
+│  │      org.eclipse.jdt.core.prefs
+│  │
+│  ├─src
+│  │  └─main
+│  │      ├─java
+│  │      │  └─com
+│  │      │      └─ruoyi
+│  │      │          └─system
+│  │      │              ├─domain
+│  │      │              │  │  SysCache.java
+│  │      │              │  │  SysConfig.java
+│  │      │              │  │  SysLogininfor.java
+│  │      │              │  │  SysNotice.java
+│  │      │              │  │  SysOperLog.java
+│  │      │              │  │  SysPost.java
+│  │      │              │  │  SysRoleDept.java
+│  │      │              │  │  SysRoleMenu.java
+│  │      │              │  │  SysUserOnline.java
+│  │      │              │  │  SysUserPost.java
+│  │      │              │  │  SysUserRole.java
+│  │      │              │  │
+│  │      │              │  └─vo
+│  │      │              │          MetaVo.java
+│  │      │              │          RouterVo.java
+│  │      │              │
+│  │      │              ├─mapper
+│  │      │              │      SysConfigMapper.java
+│  │      │              │      SysDeptMapper.java
+│  │      │              │      SysDictDataMapper.java
+│  │      │              │      SysDictTypeMapper.java
+│  │      │              │      SysLogininforMapper.java
+│  │      │              │      SysMenuMapper.java
+│  │      │              │      SysNoticeMapper.java
+│  │      │              │      SysOperLogMapper.java
+│  │      │              │      SysPostMapper.java
+│  │      │              │      SysRoleDeptMapper.java
+│  │      │              │      SysRoleMapper.java
+│  │      │              │      SysRoleMenuMapper.java
+│  │      │              │      SysUserMapper.java
+│  │      │              │      SysUserPostMapper.java
+│  │      │              │      SysUserRoleMapper.java
+│  │      │              │
+│  │      │              └─service
+│  │      │                  │  ISysConfigService.java
+│  │      │                  │  ISysDeptService.java
+│  │      │                  │  ISysDictDataService.java
+│  │      │                  │  ISysDictTypeService.java
+│  │      │                  │  ISysLogininforService.java
+│  │      │                  │  ISysMenuService.java
+│  │      │                  │  ISysNoticeService.java
+│  │      │                  │  ISysOperLogService.java
+│  │      │                  │  ISysPostService.java
+│  │      │                  │  ISysRoleService.java
+│  │      │                  │  ISysUserOnlineService.java
+│  │      │                  │  ISysUserService.java
+│  │      │                  │
+│  │      │                  └─impl
+│  │      │                          SysConfigServiceImpl.java
+│  │      │                          SysDeptServiceImpl.java
+│  │      │                          SysDictDataServiceImpl.java
+│  │      │                          SysDictTypeServiceImpl.java
+│  │      │                          SysLogininforServiceImpl.java
+│  │      │                          SysMenuServiceImpl.java
+│  │      │                          SysNoticeServiceImpl.java
+│  │      │                          SysOperLogServiceImpl.java
+│  │      │                          SysPostServiceImpl.java
+│  │      │                          SysRoleServiceImpl.java
+│  │      │                          SysUserOnlineServiceImpl.java
+│  │      │                          SysUserServiceImpl.java
+│  │      │
+│  │      └─resources
+│  │          └─mapper
+│  │              └─system
+│  │                      SysConfigMapper.xml
+│  │                      SysDeptMapper.xml
+│  │                      SysDictDataMapper.xml
+│  │                      SysDictTypeMapper.xml
+│  │                      SysLogininforMapper.xml
+│  │                      SysMenuMapper.xml
+│  │                      SysNoticeMapper.xml
+│  │                      SysOperLogMapper.xml
+│  │                      SysPostMapper.xml
+│  │                      SysRoleDeptMapper.xml
+│  │                      SysRoleMapper.xml
+│  │                      SysRoleMenuMapper.xml
+│  │                      SysUserMapper.xml
+│  │                      SysUserPostMapper.xml
+│  │                      SysUserRoleMapper.xml
+│  │
+│  └─target
+│      │  ruoyi-system-3.8.8.jar
+│      │
+│      ├─classes
+│      │  ├─com
+│      │  │  └─ruoyi
+│      │  │      └─system
+│      │  │          ├─domain
+│      │  │          │  │  SysCache.class
+│      │  │          │  │  SysConfig.class
+│      │  │          │  │  SysLogininfor.class
+│      │  │          │  │  SysNotice.class
+│      │  │          │  │  SysOperLog.class
+│      │  │          │  │  SysPost.class
+│      │  │          │  │  SysRoleDept.class
+│      │  │          │  │  SysRoleMenu.class
+│      │  │          │  │  SysUserOnline.class
+│      │  │          │  │  SysUserPost.class
+│      │  │          │  │  SysUserRole.class
+│      │  │          │  │
+│      │  │          │  └─vo
+│      │  │          │          MetaVo.class
+│      │  │          │          RouterVo.class
+│      │  │          │
+│      │  │          ├─mapper
+│      │  │          │      SysConfigMapper.class
+│      │  │          │      SysDeptMapper.class
+│      │  │          │      SysDictDataMapper.class
+│      │  │          │      SysDictTypeMapper.class
+│      │  │          │      SysLogininforMapper.class
+│      │  │          │      SysMenuMapper.class
+│      │  │          │      SysNoticeMapper.class
+│      │  │          │      SysOperLogMapper.class
+│      │  │          │      SysPostMapper.class
+│      │  │          │      SysRoleDeptMapper.class
+│      │  │          │      SysRoleMapper.class
+│      │  │          │      SysRoleMenuMapper.class
+│      │  │          │      SysUserMapper.class
+│      │  │          │      SysUserPostMapper.class
+│      │  │          │      SysUserRoleMapper.class
+│      │  │          │
+│      │  │          └─service
+│      │  │              │  ISysConfigService.class
+│      │  │              │  ISysDeptService.class
+│      │  │              │  ISysDictDataService.class
+│      │  │              │  ISysDictTypeService.class
+│      │  │              │  ISysLogininforService.class
+│      │  │              │  ISysMenuService.class
+│      │  │              │  ISysNoticeService.class
+│      │  │              │  ISysOperLogService.class
+│      │  │              │  ISysPostService.class
+│      │  │              │  ISysRoleService.class
+│      │  │              │  ISysUserOnlineService.class
+│      │  │              │  ISysUserService.class
+│      │  │              │
+│      │  │              └─impl
+│      │  │                      SysConfigServiceImpl.class
+│      │  │                      SysDeptServiceImpl.class
+│      │  │                      SysDictDataServiceImpl.class
+│      │  │                      SysDictTypeServiceImpl.class
+│      │  │                      SysLogininforServiceImpl.class
+│      │  │                      SysMenuServiceImpl.class
+│      │  │                      SysNoticeServiceImpl.class
+│      │  │                      SysOperLogServiceImpl.class
+│      │  │                      SysPostServiceImpl.class
+│      │  │                      SysRoleServiceImpl.class
+│      │  │                      SysUserOnlineServiceImpl.class
+│      │  │                      SysUserServiceImpl.class
+│      │  │
+│      │  ├─mapper
+│      │  │  └─system
+│      │  │          SysConfigMapper.xml
+│      │  │          SysDeptMapper.xml
+│      │  │          SysDictDataMapper.xml
+│      │  │          SysDictTypeMapper.xml
+│      │  │          SysLogininforMapper.xml
+│      │  │          SysMenuMapper.xml
+│      │  │          SysNoticeMapper.xml
+│      │  │          SysOperLogMapper.xml
+│      │  │          SysPostMapper.xml
+│      │  │          SysRoleDeptMapper.xml
+│      │  │          SysRoleMapper.xml
+│      │  │          SysRoleMenuMapper.xml
+│      │  │          SysUserMapper.xml
+│      │  │          SysUserPostMapper.xml
+│      │  │          SysUserRoleMapper.xml
+│      │  │
+│      │  └─META-INF
+│      │      │  MANIFEST.MF
+│      │      │
+│      │      └─maven
+│      │          └─com.ruoyi
+│      │              └─ruoyi-system
+│      │                      pom.properties
+│      │                      pom.xml
+│      │
+│      ├─generated-sources
+│      │  └─annotations
+│      ├─maven-archiver
+│      │      pom.properties
+│      │
+│      └─maven-status
+│          └─maven-compiler-plugin
+│              └─compile
+│                  └─default-compile
+│                          createdFiles.lst
+│                          inputFiles.lst
+│
+├─ruoyi-ui
+│  │  .editorconfig
+│  │  .env.development
+│  │  .env.production
+│  │  .env.staging
+│  │  .eslintignore
+│  │  .eslintrc.js
+│  │  .gitignore
+│  │  babel.config.js
+│  │  package.json
+│  │  README.md
+│  │  vue.config.js
+│  │
+│  ├─bin
+│  │      build.bat
+│  │      package.bat
+│  │      run-web.bat
+│  │
+│  ├─build
+│  │      index.js
+│  │
+│  ├─public
+│  │  │  favicon.ico
+│  │  │  index.html
+│  │  │  robots.txt
+│  │  │
+│  │  └─html
+│  │          ie.html
+│  │
+│  └─src
+│      │  App.vue
+│      │  main.js
+│      │  permission.js
+│      │  settings.js
+│      │
+│      ├─api
+│      │  │  login.js
+│      │  │  menu.js
+│      │  │
+│      │  ├─monitor
+│      │  │      cache.js
+│      │  │      job.js
+│      │  │      jobLog.js
+│      │  │      logininfor.js
+│      │  │      online.js
+│      │  │      operlog.js
+│      │  │      server.js
+│      │  │
+│      │  ├─system
+│      │  │  │  config.js
+│      │  │  │  dept.js
+│      │  │  │  menu.js
+│      │  │  │  notice.js
+│      │  │  │  post.js
+│      │  │  │  role.js
+│      │  │  │  user.js
+│      │  │  │
+│      │  │  └─dict
+│      │  │          data.js
+│      │  │          type.js
+│      │  │
+│      │  └─tool
+│      │          gen.js
+│      │
+│      ├─assets
+│      │  ├─401_images
+│      │  │      401.gif
+│      │  │
+│      │  ├─404_images
+│      │  │      404.png
+│      │  │      404_cloud.png
+│      │  │
+│      │  ├─icons
+│      │  │  │  index.js
+│      │  │  │  svgo.yml
+│      │  │  │
+│      │  │  └─svg
+│      │  │          404.svg
+│      │  │          bug.svg
+│      │  │          build.svg
+│      │  │          button.svg
+│      │  │          cascader.svg
+│      │  │          chart.svg
+│      │  │          checkbox.svg
+│      │  │          clipboard.svg
+│      │  │          code.svg
+│      │  │          color.svg
+│      │  │          component.svg
+│      │  │          dashboard.svg
+│      │  │          date-range.svg
+│      │  │          date.svg
+│      │  │          dict.svg
+│      │  │          documentation.svg
+│      │  │          download.svg
+│      │  │          drag.svg
+│      │  │          druid.svg
+│      │  │          edit.svg
+│      │  │          education.svg
+│      │  │          email.svg
+│      │  │          example.svg
+│      │  │          excel.svg
+│      │  │          exit-fullscreen.svg
+│      │  │          eye-open.svg
+│      │  │          eye.svg
+│      │  │          form.svg
+│      │  │          fullscreen.svg
+│      │  │          github.svg
+│      │  │          guide.svg
+│      │  │          icon.svg
+│      │  │          input.svg
+│      │  │          international.svg
+│      │  │          job.svg
+│      │  │          language.svg
+│      │  │          link.svg
+│      │  │          list.svg
+│      │  │          lock.svg
+│      │  │          log.svg
+│      │  │          logininfor.svg
+│      │  │          message.svg
+│      │  │          money.svg
+│      │  │          monitor.svg
+│      │  │          nested.svg
+│      │  │          number.svg
+│      │  │          online.svg
+│      │  │          password.svg
+│      │  │          pdf.svg
+│      │  │          people.svg
+│      │  │          peoples.svg
+│      │  │          phone.svg
+│      │  │          post.svg
+│      │  │          qq.svg
+│      │  │          question.svg
+│      │  │          radio.svg
+│      │  │          rate.svg
+│      │  │          redis-list.svg
+│      │  │          redis.svg
+│      │  │          row.svg
+│      │  │          search.svg
+│      │  │          select.svg
+│      │  │          server.svg
+│      │  │          shopping.svg
+│      │  │          size.svg
+│      │  │          skill.svg
+│      │  │          slider.svg
+│      │  │          star.svg
+│      │  │          swagger.svg
+│      │  │          switch.svg
+│      │  │          system.svg
+│      │  │          tab.svg
+│      │  │          table.svg
+│      │  │          textarea.svg
+│      │  │          theme.svg
+│      │  │          time-range.svg
+│      │  │          time.svg
+│      │  │          tool.svg
+│      │  │          tree-table.svg
+│      │  │          tree.svg
+│      │  │          upload.svg
+│      │  │          user.svg
+│      │  │          validCode.svg
+│      │  │          wechat.svg
+│      │  │          zip.svg
+│      │  │
+│      │  ├─images
+│      │  │      dark.svg
+│      │  │      light.svg
+│      │  │      login-background.jpg
+│      │  │      pay.png
+│      │  │      profile.jpg
+│      │  │
+│      │  ├─logo
+│      │  │      logo.png
+│      │  │
+│      │  └─styles
+│      │          btn.scss
+│      │          element-ui.scss
+│      │          element-variables.scss
+│      │          index.scss
+│      │          mixin.scss
+│      │          ruoyi.scss
+│      │          sidebar.scss
+│      │          transition.scss
+│      │          variables.scss
+│      │
+│      ├─components
+│      │  ├─Breadcrumb
+│      │  │      index.vue
+│      │  │
+│      │  ├─Crontab
+│      │  │      day.vue
+│      │  │      hour.vue
+│      │  │      index.vue
+│      │  │      min.vue
+│      │  │      month.vue
+│      │  │      result.vue
+│      │  │      second.vue
+│      │  │      week.vue
+│      │  │      year.vue
+│      │  │
+│      │  ├─DictData
+│      │  │      index.js
+│      │  │
+│      │  ├─DictTag
+│      │  │      index.vue
+│      │  │
+│      │  ├─Editor
+│      │  │      index.vue
+│      │  │
+│      │  ├─FileUpload
+│      │  │      index.vue
+│      │  │
+│      │  ├─Hamburger
+│      │  │      index.vue
+│      │  │
+│      │  ├─HeaderSearch
+│      │  │      index.vue
+│      │  │
+│      │  ├─IconSelect
+│      │  │      index.vue
+│      │  │      requireIcons.js
+│      │  │
+│      │  ├─iFrame
+│      │  │      index.vue
+│      │  │
+│      │  ├─ImagePreview
+│      │  │      index.vue
+│      │  │
+│      │  ├─ImageUpload
+│      │  │      index.vue
+│      │  │
+│      │  ├─Pagination
+│      │  │      index.vue
+│      │  │
+│      │  ├─PanThumb
+│      │  │      index.vue
+│      │  │
+│      │  ├─ParentView
+│      │  │      index.vue
+│      │  │
+│      │  ├─RightPanel
+│      │  │      index.vue
+│      │  │
+│      │  ├─RightToolbar
+│      │  │      index.vue
+│      │  │
+│      │  ├─RuoYi
+│      │  │  ├─Doc
+│      │  │  │      index.vue
+│      │  │  │
+│      │  │  └─Git
+│      │  │          index.vue
+│      │  │
+│      │  ├─Screenfull
+│      │  │      index.vue
+│      │  │
+│      │  ├─SizeSelect
+│      │  │      index.vue
+│      │  │
+│      │  ├─SvgIcon
+│      │  │      index.vue
+│      │  │
+│      │  ├─ThemePicker
+│      │  │      index.vue
+│      │  │
+│      │  └─TopNav
+│      │          index.vue
+│      │
+│      ├─directive
+│      │  │  index.js
+│      │  │
+│      │  ├─dialog
+│      │  │      drag.js
+│      │  │      dragHeight.js
+│      │  │      dragWidth.js
+│      │  │
+│      │  ├─module
+│      │  │      clipboard.js
+│      │  │
+│      │  └─permission
+│      │          hasPermi.js
+│      │          hasRole.js
+│      │
+│      ├─layout
+│      │  │  index.vue
+│      │  │
+│      │  ├─components
+│      │  │  │  AppMain.vue
+│      │  │  │  index.js
+│      │  │  │  Navbar.vue
+│      │  │  │
+│      │  │  ├─IframeToggle
+│      │  │  │      index.vue
+│      │  │  │
+│      │  │  ├─InnerLink
+│      │  │  │      index.vue
+│      │  │  │
+│      │  │  ├─Settings
+│      │  │  │      index.vue
+│      │  │  │
+│      │  │  ├─Sidebar
+│      │  │  │      FixiOSBug.js
+│      │  │  │      index.vue
+│      │  │  │      Item.vue
+│      │  │  │      Link.vue
+│      │  │  │      Logo.vue
+│      │  │  │      SidebarItem.vue
+│      │  │  │
+│      │  │  └─TagsView
+│      │  │          index.vue
+│      │  │          ScrollPane.vue
+│      │  │
+│      │  └─mixin
+│      │          ResizeHandler.js
+│      │
+│      ├─plugins
+│      │      auth.js
+│      │      cache.js
+│      │      download.js
+│      │      index.js
+│      │      modal.js
+│      │      tab.js
+│      │
+│      ├─router
+│      │      index.js
+│      │
+│      ├─store
+│      │  │  getters.js
+│      │  │  index.js
+│      │  │
+│      │  └─modules
+│      │          app.js
+│      │          dict.js
+│      │          permission.js
+│      │          settings.js
+│      │          tagsView.js
+│      │          user.js
+│      │
+│      ├─utils
+│      │  │  auth.js
+│      │  │  errorCode.js
+│      │  │  index.js
+│      │  │  jsencrypt.js
+│      │  │  permission.js
+│      │  │  request.js
+│      │  │  ruoyi.js
+│      │  │  scroll-to.js
+│      │  │  validate.js
+│      │  │
+│      │  ├─dict
+│      │  │      Dict.js
+│      │  │      DictConverter.js
+│      │  │      DictData.js
+│      │  │      DictMeta.js
+│      │  │      DictOptions.js
+│      │  │      index.js
+│      │  │
+│      │  └─generator
+│      │          config.js
+│      │          css.js
+│      │          drawingDefault.js
+│      │          html.js
+│      │          icon.json
+│      │          js.js
+│      │          render.js
+│      │
+│      └─views
+│          │  index.vue
+│          │  index_v1.vue
+│          │  login.vue
+│          │  redirect.vue
+│          │  register.vue
+│          │
+│          ├─dashboard
+│          │  │  BarChart.vue
+│          │  │  LineChart.vue
+│          │  │  PanelGroup.vue
+│          │  │  PieChart.vue
+│          │  │  RaddarChart.vue
+│          │  │
+│          │  └─mixins
+│          │          resize.js
+│          │
+│          ├─error
+│          │      401.vue
+│          │      404.vue
+│          │
+│          ├─monitor
+│          │  ├─cache
+│          │  │      index.vue
+│          │  │      list.vue
+│          │  │
+│          │  ├─druid
+│          │  │      index.vue
+│          │  │
+│          │  ├─job
+│          │  │      index.vue
+│          │  │      log.vue
+│          │  │
+│          │  ├─logininfor
+│          │  │      index.vue
+│          │  │
+│          │  ├─online
+│          │  │      index.vue
+│          │  │
+│          │  ├─operlog
+│          │  │      index.vue
+│          │  │
+│          │  └─server
+│          │          index.vue
+│          │
+│          ├─system
+│          │  ├─config
+│          │  │      index.vue
+│          │  │
+│          │  ├─dept
+│          │  │      index.vue
+│          │  │
+│          │  ├─dict
+│          │  │      data.vue
+│          │  │      index.vue
+│          │  │
+│          │  ├─menu
+│          │  │      index.vue
+│          │  │
+│          │  ├─notice
+│          │  │      index.vue
+│          │  │
+│          │  ├─post
+│          │  │      index.vue
+│          │  │
+│          │  ├─role
+│          │  │      authUser.vue
+│          │  │      index.vue
+│          │  │      selectUser.vue
+│          │  │
+│          │  └─user
+│          │      │  authRole.vue
+│          │      │  index.vue
+│          │      │
+│          │      └─profile
+│          │              index.vue
+│          │              resetPwd.vue
+│          │              userAvatar.vue
+│          │              userInfo.vue
+│          │
+│          └─tool
+│              ├─build
+│              │      CodeTypeDialog.vue
+│              │      DraggableItem.vue
+│              │      IconsDialog.vue
+│              │      index.vue
+│              │      RightPanel.vue
+│              │      TreeNodeDialog.vue
+│              │
+│              ├─gen
+│              │      basicInfoForm.vue
+│              │      createTable.vue
+│              │      editTable.vue
+│              │      genInfoForm.vue
+│              │      importTable.vue
+│              │      index.vue
+│              │
+│              └─swagger
+│                      index.vue
+│
+└─sql
+  
